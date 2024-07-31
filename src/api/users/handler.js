@@ -7,7 +7,7 @@ class UserHandler {
 
     this.postUserHandler = this.postUserHandler.bind(this);
     this.getUserByIdHandler = this.getUserByIdHandler.bind(this);
-    this.getUserByUsernameHandler = this.getUserByUsernameHandler.bind(this);
+    this.getUsersByUsernameHandler = this.getUsersByUsernameHandler.bind(this);
   }
 
   async postUserHandler(request, h) {
@@ -38,7 +38,7 @@ class UserHandler {
     };
   }
 
-  async getUserByUsernameHandler(request, h) {
+  async getUsersByUsernameHandler(request, h) {
     try {
       const { username = '' } = request.query;
       const users = await this._service.getUsersByUsername(username);

@@ -2,6 +2,8 @@ class ExportsHandler {
   constructor(service, validator) {
     this._service = service;
     this._validator = validator;
+
+    this.postExportNotesHandler = this.postExportNotesHandler.bind(this);
   }
 
   async postExportNotesHandler(request, h) {
@@ -16,7 +18,7 @@ class ExportsHandler {
 
     const response = h.response({
       status: 'success',
-      message: 'Permintaan Anda sedang kami proses',
+      message: 'Permintaan Anda dalam antrean',
     });
     response.code(201);
     return response;
